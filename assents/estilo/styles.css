@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+body {
+   background-color: #403e3e;
+}
+
+#titulo-h1 {
+    color: white;
+}
+
+.bola-mega {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: green;
+    color: wheat;
+}
+section {
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+}
+
+span {
+    border-radius: 50%;
+    background-color: green;
+    color: wheat;
+    padding: 10px;
+}
