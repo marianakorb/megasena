@@ -32,7 +32,6 @@ function selecionaNumero(num) {
             btnAposta.disabled = false;
 
         }
-
         // mostrar quantidade de numeros apostados
         const qtdApostas = document.querySelector("#qtdApostas");
         qtdApostas.innerHTML = " <span>Qtd. números</span><p class='qtdNum'>" + numJogados.length + "</p>";
@@ -53,6 +52,9 @@ function apostar() {
     for(i = 0; i < numJogados.length; i++) {
         if(resultado.includes(numJogados[i])) {
                 qtdAcertos++;
+            } else {
+                const num = document.getElementById("num_" + numJogados[i]);
+                n.style.background = "red";
             }
         }
         // mostrar o resultado
@@ -68,3 +70,4 @@ function apostar() {
 
     //desabilitar todos os botoes
 }
+

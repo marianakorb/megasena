@@ -50,6 +50,7 @@ section.resultado-mega {
 .qtdNum, .acertos {
    font-weight: 600; 
 }
+
 .res-bola {
     display: flex;
     align-items: center;
