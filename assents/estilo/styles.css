@@ -34,6 +34,10 @@ main button {
     background-color: transparent;
 }
 
+main button:hover:disabled {
+    cursor: not-allowed;
+}
+
 section.resultado-mega {
     flex-wrap: wrap;
     margin-top: 16px;
