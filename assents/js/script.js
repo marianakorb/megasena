@@ -48,6 +48,7 @@ function desabilitarNum(num) {
 }
 
 function apostar(){
+    btnAposta.disabled = true;
     // fazer a aposta - compara os números sorteados com os apostados
     for(i = 0; i < numJogados.length; i++){
         if(resultado.includes(numJogados[i])){
