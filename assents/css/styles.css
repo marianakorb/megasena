@@ -64,10 +64,8 @@ section.resultado-mega {
     height: 40px;
 
 }
-.acertou-num {
-    background-color: green;
-}
 
-.errou-num {
-    background-color: red;
+.mensagem {
+    color: yellow;
+    font-size: 1.5em;
 }

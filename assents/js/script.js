@@ -6,19 +6,19 @@ btnAposta.disabled = true;
 
 sortearNumeros();
 function sortearNumeros() {
-    // sortea o numero do jogo
-    for(i = 0; i < 6; i++) {
+     // sortea o numero do jogo
+        for(i = 0; i < 6; i++) {
         let numeroSorteado =  Math.round(Math.random() * 59 + 1 );
 
-        // verifica se o numero sorteado está na lista de sorteados, enquanto existir ele sorteia um novo numero
-        while(resultado.includes(numeroSorteado)) {
-            let numeroSorteado = Math.round(Math.random() * 59 + 1 );
+         // verifica se o numero sorteado está na lista de sorteados, enquanto existir ele sorteia um novo numero
+         while(resultado.includes(numeroSorteado)) {
+             numeroSorteado = Math.round(Math.random() * 59 + 1 );
 
-        }
+         }
 
-        resultado.push(numeroSorteado); // insere o numero sorteado na lista 
-    }
-}
+         resultado.push(numeroSorteado); // insere o numero sorteado na lista 
+     }
+ }
 
 function selecionaNumero(num) {
 
@@ -52,25 +52,35 @@ function apostar(){
     for(i = 0; i < numJogados.length; i++){
         if(resultado.includes(numJogados[i])){
             qtdAcertos++;
+        } else {
+            const n = document.getElementById("num_" + numJogados[i]);
+            n.style.background = "red";
         }
 
     }
     // mostrar o resultado
     const divResultado = document.querySelector("#resultado-mega");
     for(i = 0; i < resultado.length; i++){
-        divResultado.innerHTML += "<div class='res-bolas'>"+ resultado[i] +"</div>";
+        divResultado.innerHTML += "<div class='res-bola'>"+ resultado[i] +"</div>";
         console.log(resultado);
     }
 
     // Mostrar a quantidade de acertos
-    let divAcertos = document.getElementById("acertos")
-    divAcertos.innerHTML = "<p>Acertos</p><p class='acertos'>" + qtdAcertos + "</p>"
+    let divAcertos = document.getElementById("acertos");
+    divAcertos.innerHTML = "<span>Acertos</span><p class='acertos'>" + qtdAcertos + "</p>";
+
+    const ganhou = document.querySelector("#ganhou");
+    if(qtdAcertos == 6) {
+        ganhou.innerHTML = "<p class='mensagem'>Parabéns! Você está milionário(a)</p>"
+    } else {
+        ganhou.innerHTML = "<p class='mensagem'>Não foi dessa vez.</p>"
+    }
 
     // desabilitar todos os botões
     desabilitarTodosNumeros();
 
-    // habilitar o botão reiniciar
-    //document.getElementById("btnReiniciar").style.display = 'inline';
+   
+    
 }
 
 function desabilitarTodosNumeros(){
@@ -78,6 +88,11 @@ function desabilitarTodosNumeros(){
         document.getElementById("num_"+ i).disabled= true;
     }
 }
+
+let btn = document.querySelector("#btnReiniciar");
+btn.addEventListener("click", function(){
+    location.reload();
+});
 
 
 
