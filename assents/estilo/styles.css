@@ -38,6 +38,10 @@ main button:hover:disabled {
     cursor: not-allowed;
 }
 
+button#btnAposta:hover:disabled{
+    cursor: not-allowed;
+}
+
 section.resultado-mega {
     flex-wrap: wrap;
     margin-top: 16px;
