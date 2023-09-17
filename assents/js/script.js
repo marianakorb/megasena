@@ -8,11 +8,11 @@ sortearNumeros();
 function sortearNumeros() {
     // sortea o numero do jogo
     for(i = 0; i < 6; i++) {
-        let numeroSorteado = Math.floor(Math.random * 60) + 1;
+        let numeroSorteado =  Math.round(Math.random() * 59 + 1 );
 
         // verifica se o numero sorteado está na lista de sorteados, enquanto existir ele sorteia um novo numero
         while(resultado.includes(numeroSorteado)) {
-            let numeroSorteado = Math.floor(Math.random * 60) + 1;
+            let numeroSorteado = Math.round(Math.random() * 59 + 1 );
 
         }
 
@@ -47,27 +47,37 @@ function desabilitarNum(num) {
     n.style.color = "white";
 }
 
-function apostar() {
-    // fazer a aposta: comparar os numeros apostados com os sorteados
-    for(i = 0; i < numJogados.length; i++) {
-        if(resultado.includes(numJogados[i])) {
-                qtdAcertos++;
-            } else {
-                const num = document.getElementById("num_" + numJogados[i]);
-                n.style.background = "red";
-            }
+function apostar(){
+    // fazer a aposta - compara os números sorteados com os apostados
+    for(i = 0; i < numJogados.length; i++){
+        if(resultado.includes(numJogados[i])){
+            qtdAcertos++;
         }
-        // mostrar o resultado
-    const divResultado = document.querySelector("#resultado-mega");
 
-    for(i = 0; i < resultado.length; i++) {
-        divResultado.innerHTML += "<div class='res-bola'>" + resultado[i] + "</div>";
+    }
+    // mostrar o resultado
+    const divResultado = document.querySelector("#resultado-mega");
+    for(i = 0; i < resultado.length; i++){
+        divResultado.innerHTML += "<div class='res-bolas'>"+ resultado[i] +"</div>";
+        console.log(resultado);
     }
 
-    // mostrar quantidade de acertos
-    let divAcertos = document.querySelector("#acertos");
-    divAcertos.innerHTML = "<span>Acertos</span><p class='acertos'>" + qtdAcertos +"</p>";
+    // Mostrar a quantidade de acertos
+    let divAcertos = document.getElementById("acertos")
+    divAcertos.innerHTML = "<p>Acertos</p><p class='acertos'>" + qtdAcertos + "</p>"
 
-    //desabilitar todos os botoes
+    // desabilitar todos os botões
+    desabilitarTodosNumeros();
+
+    // habilitar o botão reiniciar
+    //document.getElementById("btnReiniciar").style.display = 'inline';
 }
+
+function desabilitarTodosNumeros(){
+    for(i = 1; i <= 60; i++){
+        document.getElementById("num_"+ i).disabled= true;
+    }
+}
+
+
 
